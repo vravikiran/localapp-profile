@@ -21,7 +21,7 @@ public class LocationController {
 	@Autowired
 	LocationService locationService;
 
-	@GetMapping
+	@GetMapping("/state")
 	public ResponseEntity<List<Location>> getLocationsByState(@RequestParam(name = "state_id") Integer state_id) {
 		List<Location> countries = locationService.getLocationsByState(state_id);
 		return ResponseEntity.ok(countries);
