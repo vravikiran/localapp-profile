@@ -9,7 +9,7 @@ import com.local.guide.app.user.profile.dao.CountryRepository;
 import com.local.guide.app.user.profile.dao.LocationRepository;
 import com.local.guide.app.user.profile.dao.StateRepostiory;
 import com.local.guide.app.user.profile.entities.Country;
-import com.local.guide.app.user.profile.entities.Location;
+import com.local.guide.app.user.profile.entities.LocationDto;
 import com.local.guide.app.user.profile.entities.State;
 
 @Service
@@ -21,8 +21,8 @@ public class LocationService {
 	@Autowired
 	StateRepostiory stateRepostiory;
 
-	public List<Location> getLocationsByState(Integer state_id) {
-		return locationRepository.getLocationsByState(state_id);
+	public List<LocationDto> getLocationsByState(Integer state_id,Integer country_id) {
+		return locationRepository.getLocationsByState(state_id,country_id);
 	}
 
 	public List<Country> getCountries() {

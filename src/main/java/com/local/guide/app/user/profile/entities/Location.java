@@ -3,17 +3,18 @@ package com.local.guide.app.user.profile.entities;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.IdClass;
 
 @Entity
+@IdClass(LocationPrimaryKey.class)
 public class Location {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int location_id;
 	private String location;
+	@Id
 	private String state_id;
+	@Id
 	private String country_id;
 
 	public int getLocation_id() {

@@ -17,11 +17,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.local.guide.app.user.profile.entities.User;
+import com.local.guide.app.user.profile.entities.UserDto;
 import com.local.guide.app.user.profile.services.FileService;
 import com.local.guide.app.user.profile.services.UserService;
-import org.springframework.web.multipart.MultipartFile;
+import java.util.List;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -71,6 +73,12 @@ public class UserController {
 	public ResponseEntity<Object> uploadImageForMobile(@RequestParam("photo") MultipartFile file) throws IOException {
 		fileService.imageUploadFromMobile(file);
 		return ResponseEntity.ok("success");
+	}
+
+	@GetMapping(path = "/location")
+	public ResponseEntity<List<UserDto>> getUsersByLocation(@RequestParam("city_id") int city_id) {
+		List<UserDto> userDtos = userService.fetchUsersByLocation(city_id);
+		return ResponseEntity.ok(userDtos);
 	}
 
 	@ExceptionHandler(IOException.class)
