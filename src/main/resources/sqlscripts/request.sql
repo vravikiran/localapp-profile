@@ -1,3 +1,5 @@
+-- localapp.request definition
+
 CREATE TABLE `request` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `status` varchar(20) NOT NULL,
@@ -12,4 +14,4 @@ CREATE TABLE `request` (
   `end_date` date NOT NULL,
   `plan_type` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
