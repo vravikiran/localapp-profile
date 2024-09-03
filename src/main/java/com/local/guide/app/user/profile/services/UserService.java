@@ -51,7 +51,7 @@ public class UserService {
 		}
 	}
 
-	public List<UserDto> fetchUsersByLocation(int city_id) {
-		return locationRepository.getUsersByLocations(city_id);
+	public List<UserDto> fetchUsersByLocation(int city_id,int country_id,int state_id) {
+		return locationRepository.getUsersByLocations(city_id,country_id,state_id);
 	}
 }

@@ -76,8 +76,8 @@ public class UserController {
 	}
 
 	@GetMapping(path = "/location")
-	public ResponseEntity<List<UserDto>> getUsersByLocation(@RequestParam("city_id") int city_id) {
-		List<UserDto> userDtos = userService.fetchUsersByLocation(city_id);
+	public ResponseEntity<List<UserDto>> getUsersByLocation(@RequestParam("city_id") int city_id, @RequestParam("country_id") int country_id,@RequestParam("state_id") int state_id) {
+		List<UserDto> userDtos = userService.fetchUsersByLocation(city_id,country_id,state_id);
 		return ResponseEntity.ok(userDtos);
 	}
 
